@@ -22,7 +22,23 @@ Storage engine 에는 InnoDB, MyISAM, Memory 엔진 등이 있다.
 
 
 
+### 2. InnoDB Storage Engine
 
+(1). PK clustering
+
+InnoDB 는 PK 가 클러스터링 인덱스이다. 인덱스를 쓰면 select ~ where, order by, min/max 등에서 성능 향상을 얻을 수 있다.
+
+Secondary index 의 경우 PK 를 논리적인 주소로 사용한다.
+
+MyISAM 은 클러스터링 키가 지원되지 않는다.
+
+(2). Foreign key
+
+InnoDB 는 FK 기능을 지원하는데, 이는 장단점이 있는 기능이다.
+
+해당 컬럼에 인덱스를 생성해야 하고, 변경 시 데이터를 체크하여 lock 이 여러 테이블로 전파된다.
+
+foreign_key_checks 옵션으로 FK 체크를 OFF 할 수 있다.
 
 
 
