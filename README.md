@@ -1,3 +1,43 @@
+## Chapter 4. 아키텍처
+
+Mysql 은 mysql engine 과 storage engine 으로 구성되어 있다.
+
+Storage engine 은 플러그인 모델로 여러 엔진을 플러그인해서 사용할 수 있다.
+
+Storage engine 에는 InnoDB, MyISAM, Memory 엔진 등이 있다.
+
+### 쿼리 실행 구조
+
+1. 쿼리 파서 : SQL 쿼리를 tree 구조의 token 으로 만든다.
+
+2. preprocessor : 파서 트리의 구조적인 문제점을 확인한다. 객체의 존재 여부와 권한을 체크한다.
+
+3. 옵티마이저 : 쿼리를 효율적으로 수행할 방법을 찾는다.
+
+4. Query Executor : storage engine 의 handler api 를 기반으로 쿼리를 수행한다. 
+
+5. Storage engine : handler api 를 제공하며 이는 commit, delete, read, write, 등이 있다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 옵티마이저는 사용자가 쿼리를 최적으로 처리될 수 있게 하는 실행 계획을 수립한다.
 
