@@ -46,6 +46,15 @@ Multi version concurrency control 은 record 의 버전을 여러개로 관리�
 
 InnoDB 에서는 undo log 를 통해 이를 구현하며, update 쿼리를 실행할 경우 기존 데이터를 undo log 에 옮기고, buffer pool 의 값은 업데이트한다. 다른 스레드가 이러한 commit 되지 않은 레코드를 조회할 경우 READ_COMMITED 의 경우 undo log 값을, READ_UNCOMMITTED 의 경우 buffer pool 의 값을 읽는다.
 
+(4). Non-locking consistent read
+
+MVCC 를 통해 조회 기능의 경우 lock 을 사용하지 않아도 된다.
+
+(5). Automatic deadlock detection
+
+감시 스레드가 deadlock 을 감시하며 undo log 가 적은 트랜잭션을 강제 종료한다.
+
+
 
 
 
