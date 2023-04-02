@@ -40,6 +40,11 @@ InnoDB 는 FK 기능을 지원하는데, 이는 장단점이 있는 기능이다
 
 foreign_key_checks 옵션으로 FK 체크를 OFF 할 수 있다.
 
+(3). MVCC
+
+Multi version concurrency control 은 record 의 버전을 여러개로 관리해서 동시성 이슈를 관리한다.
+
+InnoDB 에서는 undo log 를 통해 이를 구현하며, update 쿼리를 실행할 경우 기존 데이터를 undo log 에 옮기고, buffer pool 의 값은 업데이트한다. 다른 스레드가 이러한 commit 되지 않은 레코드를 조회할 경우 READ_COMMITED 의 경우 undo log 값을, READ_UNCOMMITTED 의 경우 buffer pool 의 값을 읽는다.
 
 
 
