@@ -56,7 +56,9 @@ MVCC 를 통해 조회 기능의 경우 lock 을 사용하지 않아도 된다.
 
 
 
+(7). Buffer pool
 
+InnoDB 버퍼 풀은 디스크의 파일이나 데이터를 in-memory 에 캐시하는 곳이다. 쓰기 작업을 지연시켜 batch 처리할 수 있다.
 
 
 
