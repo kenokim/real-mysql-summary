@@ -54,13 +54,19 @@ MVCC 를 통해 조회 기능의 경우 lock 을 사용하지 않아도 된다.
 
 감시 스레드가 deadlock 을 감시하며 undo log 가 적은 트랜잭션을 강제 종료한다.
 
+(6). Automatic disaster recovery
 
+Mysql 서버 시작 시 incomplete transaction, partial write 에 대해 recovery 를 수행한다.
+
+이는 undo log, redo log 등 로그 파일을 읽는 방식이다.
 
 (7). Buffer pool
 
 InnoDB 버퍼 풀은 디스크의 파일이나 데이터를 in-memory 에 캐시하는 곳이다. 쓰기 작업을 지연시켜 batch 처리할 수 있다.
 
+innodb_buffer_pool_size -> 버퍼 풀의 크기는 dynamic 확장이 가능하다.
 
+innodb_buffer_pool_instances -> 버퍼 풀은 세마포어로 관리하므로 버퍼 풀을 분산하면 lock racing 을 분산할 수 있다.
 
 
 
