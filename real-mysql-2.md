@@ -9,3 +9,8 @@ explain 으로 type 을 확인하면 range 가 뜬다.
 PK 는 unique 해야 하며 여러 column 을 PK 로 쓸 수 있다.
 
 
+SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT
+
+각각은 clause 라고 하며 어떤 게 먼저 처리되는지 알아야 결과값을 알 수 있다.
+
+WHERE, GROUP BY, ORDER BY 는 index 를 사용할 수 있으며 값 그대로 비교해야 한다.
