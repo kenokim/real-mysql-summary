@@ -14,3 +14,12 @@ SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT
 각각은 clause 라고 하며 어떤 게 먼저 처리되는지 알아야 결과값을 알 수 있다.
 
 WHERE, GROUP BY, ORDER BY 는 index 를 사용할 수 있으며 값 그대로 비교해야 한다.
+
+
+- COUNT : 레코드의 건수를 반환한다. (ex) COUNT(PK), COUNT(*), COUNT(1)
+  - order by, left join 과 같이 레코드 건수와 무관한 작업을 포함하지 않아야 한다.
+  - index 를 적절히 사용하지 않는 count 는 부하가 많이 걸린다.
+
+- outer join 은 inner join 보다 부하가 많이 걸리므로, full-scan 쿼리가 포함되므로, 필요하지 않은 경우에는 inner join 으로 하자.
+
+- group by 는 특정 column 의 값으로 레코딩을 그루핑하고, 그룹별로 집계된 결과를 하나의 레코드로 조회한다.
