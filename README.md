@@ -101,6 +101,14 @@ mysql optmizer 는 다음의 조건에 대해 full-table scan 을 선택한다.
 2. where 나 on clause 에 index 를 이용할 조건이 없는 경우
 3. 일치하는 record 건수가 너무 많은 경우
 
+
+### 3.
+1.9. 세미 조인
+다른 테이블과 조인을 수행하지는 않고, 데이터가 있는지만 체크하는 형태의 쿼리를 semi join 이라고 한다.
+
+Mysql 5.7 이전에는 최적화가 안 된 취약한 쿼리였지만, 8.0 에서는 semijoin optimizer option 을 보면된다..
+
+
 ## Chapter 10. 실행 계획
 
 Mysql 5.7 버전까지 테이블과 인덱스에 대한 개괄적인 정보로 실행 계획을 수립했다.
