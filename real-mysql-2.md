@@ -23,3 +23,8 @@ WHERE, GROUP BY, ORDER BY 는 index 를 사용할 수 있으며 값 그대로 �
 - outer join 은 inner join 보다 부하가 많이 걸리므로, full-scan 쿼리가 포함되므로, 필요하지 않은 경우에는 inner join 으로 하자.
 
 - group by 는 특정 column 의 값으로 레코딩을 그루핑하고, 그룹별로 집계된 결과를 하나의 레코드로 조회한다.
+
+
+쿼리의 성능을 테스트 할 때, 먼저 실행 계획을 보고 문제가 있는지 판단한 후 버퍼, 캐시 등을 고려하여 실행하여 체크한다.
+
+
