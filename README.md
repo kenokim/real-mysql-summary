@@ -118,3 +118,5 @@ Mysql 8.0 버전부터는 인덱스되지 않은 칼럼들에 대해서도 데�
 Explain 은 테이블 포맷, JSON, Tree 포맷이 있다.
 
 select_type 은 쿼리의 종류를 보여준다.
+
+type 은 join 의 방식에 대한 값이며 ref, eq_ref, const 는 성능적으로 괜찮은 접근 방법이다.
