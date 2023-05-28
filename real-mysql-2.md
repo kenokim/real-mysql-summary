@@ -24,7 +24,7 @@ WHERE, GROUP BY, ORDER BY 는 index 를 사용할 수 있으며 값 그대로 �
 
 - group by 는 특정 column 의 값으로 레코딩을 그루핑하고, 그룹별로 집계된 결과를 하나의 레코드로 조회한다.
   - group by 대상 column 에 index 를 사용하지 않을 경우 filesort 가 필요하다. 
-
+  - group by 의 대상 column 이 여러 개일 경우 인덱스가 없으면 사용하지 않는다. A, B 로 group by 를 걸 경우, index A B 이거나 index A, index B 가 있어야 한다.
 
 쿼리의 성능을 테스트 할 때, 먼저 실행 계획을 보고 문제가 있는지 판단한 후 버퍼, 캐시 등을 고려하여 실행하여 체크한다.
 
