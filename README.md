@@ -93,10 +93,8 @@ innodb_buffer_pool_instances -> 버퍼 풀은 세마포어로 관리하므로 �
 
 * PK 가 변경될 경우 인덱스에서 다시 정렬이 일어날 것 같은데 성능 이슈가 없을까? 책에는 관련된 내용이 없는 걸로 보아 없을거 같긴 하다.
 
-* 이와 관련해서 실험을 해보았다. 하나는 PK 를 random string 으로, 다른 하나는 auto_increment 로 1000000 개를 insert 해보았는데, random 은 93초, auto_increment 는 106초가 나왔다. PK 를 업무적인 칼럼으로 해도 insert 시 큰 성능 이슈는 없을 듯 하다.
-
-* 이는 쓰기 작업을 buffer 를 통해서 하기 때문에 최적화가 되었다.
-
+* 이와 관련해서 실험을 해보았다. 하나는 PK 를 random string 으로, 다른 하나는 auto_increment 로 1000000 개를 insert 해보았는데, random 은 93초, auto_increment 는 106초가 나왔다. PK 를 업무적인 칼럼으로 해도 insert 시 큰 성능 이슈는 없을 듯 하다. (맞나?)
+  
 FK 를 생성할 경우 lock race condition 을 고려해야 한다. FK 가 있을 경우 연관 테이블을 체크하려고 read lock 을 걸면 다른 스레드가 write lock 을 획득할 수 없다.
 
 
